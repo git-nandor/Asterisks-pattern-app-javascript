@@ -20,6 +20,7 @@ Make it harder by accepting a 2nd parameter for the position of the asterisks (l
  *****
 *******
 */
+
 function createAsterisksPattern(levels, position) {
     var patternLevels = [];
 
@@ -76,6 +77,7 @@ function createAsterisksPattern(levels, position) {
     positioningPattern(position);
     printPattern();
 }
+
 // Start application
 createAsterisksPattern(4, 'left');
 createAsterisksPattern(4, 'right');
