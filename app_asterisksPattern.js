@@ -23,9 +23,10 @@ Make it harder by accepting a 2nd parameter for the position of the asterisks (l
 function createAsterisksPattern(levels, position) {
     var patternLevels = [];
 
+    // Build pattern: starting from y axis 0 and adding characters along x axis
     function buildPattern(levels, position) {
         for (var y = 0; y < levels; y++) {
-            // If array element isnt exist then create one to be able to expand later
+            // If array element isn't exist then create one to be able to expand later
             if (!patternLevels[y]) patternLevels[y] = '';
 
             for (var x = 0; x < levels - y; x++) {
@@ -41,21 +42,21 @@ function createAsterisksPattern(levels, position) {
 
     // Adding spaces befor/after elements based on the positioning
     function positioningPattern(position) {
-        for (var i = 1; i < patternLevels.length; i++) {
+        for (var y = 1; y < patternLevels.length; y++) {
             switch (position) {
                 case 'left':
-                    for (var y = 0; y < i; y++) {
-                        patternLevels[i] = patternLevels[i] + ' ';
+                    for (var x = 0; x < y; x++) {
+                        patternLevels[y] = patternLevels[y] + ' ';
                     }
                     break;
                 case 'right':
-                    for (var y = 0; y < i; y++) {
-                        patternLevels[i] = ' ' + patternLevels[i];
+                    for (var x = 0; x < y; x++) {
+                        patternLevels[y] = ' ' + patternLevels[y];
                     }
                     break;
                 case 'center':
-                    for (var y = 0; y < i; y++) {
-                        patternLevels[i] = ' ' + patternLevels[i] + ' ';
+                    for (var x = 0; x < y; x++) {
+                        patternLevels[y] = ' ' + patternLevels[y] + ' ';
                     }
                     break;
             }
@@ -64,8 +65,8 @@ function createAsterisksPattern(levels, position) {
 
     // Print pattern into the console
     function printPattern() {
-        for (var i = patternLevels.length; i > 0; i--) {
-            console.log(patternLevels[i - 1]);
+        for (var y = patternLevels.length; y > 0; y--) {
+            console.log(patternLevels[y - 1]);
         }
 
         console.log(patternLevels);
